@@ -1,18 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class AirplaneScriptableObject : MonoBehaviour
+[CreateAssetMenu(fileName = "AirplaneScriptableObject", menuName = "Airplane", order = 1)]
+public class AirplaneScriptableObject : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public string type;
+    public string merk;
 }
