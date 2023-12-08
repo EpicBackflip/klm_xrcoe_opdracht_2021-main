@@ -1,77 +1,86 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Airplaine : MonoBehaviour
+namespace planes
 {
-    [HideInInspector]
-    public AirplaneScriptableObject airplaneData;
+    public class Airplaine : MonoBehaviour
+    {
+        [HideInInspector]
+        public AirplaneScriptableObject airplaneData;
 
-    private string type;
-    private string merk;
+        private string type;
+        private string merk;
+        public int number;
+        
+        private NavMeshAgent agent;
+        
+        public float wanderRadius;
+        private Transform target;
+
+        private Vector3 newPos;
+        
+        private Light light;
+        private bool lightIsOn;
     
-    private NavMeshAgent agent;
-    public int number;
+        [HideInInspector]
+        public bool isParking;
+        private bool isParked;
 
-    public float wanderRadius;
-
-    private Transform target;
-    private float timer;
-
-    private Vector3 newPos;
-
-    private bool isParked = false;
-
-    private Light light;
-
-    private bool lightIsOn;
-
-    void Start()
-    {
-        type = airplaneData.type;
-        merk = airplaneData.merk;
-        name = type;
-        agent = GetComponent<NavMeshAgent>();
-
-        light = transform.GetChild(0).transform.GetChild(3).GetComponent<Light>();
-
-        newPos = RandomNavSphere(transform.position, wanderRadius, -1);
-        agent.SetDestination(newPos);
-    }
-    void Update()
-    {
-        if (agent.velocity.magnitude <= 0 && !isParked)
+        void Start()
         {
-            newPos = RandomNavSphere(transform.position, wanderRadius, -1);
-            agent.SetDestination(newPos);
+            type = airplaneData.type;
+            merk = airplaneData.merk;
+            name = type;
+            
+            agent = GetComponent<NavMeshAgent>();
+    
+            light = transform.GetChild(0).transform.GetChild(3).GetComponent<Light>();
+            
         }
-    }
-    public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask) {
-        Vector3 randDirection = Random.insideUnitSphere * dist;
- 
-        randDirection += origin;
-        NavMeshHit navHit;
-        NavMesh.SamplePosition (randDirection, out navHit, dist, layermask);
- 
-        return navHit.position;
-    }
-
-    public void Park(Vector3 Hangerpos)
-    {
-        agent.SetDestination(Hangerpos);
-        isParked = true;
-    }
-
-    public void ToggleLights()
-    {
-        if (lightIsOn)
+        void Update()
         {
-            light.intensity = 0;
-            lightIsOn = false;
+            Debug.Log(agent.pathStatus);
+            if (agent.velocity.magnitude <= 0 && !isParking)
+            {
+                newPos = RandomNavSphere(transform.position, wanderRadius, -1);
+                agent.SetDestination(newPos);
+            }
+            
+            if (agent.velocity.magnitude <= 0 && isParking && !isParked)
+            {
+                GameManager.Instance.ParkingCompleted();
+                isParked = true;
+            }
         }
-        else
+        public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask) {
+            Vector3 randDirection = Random.insideUnitSphere * dist;
+     
+            randDirection += origin;
+            NavMeshHit navHit;
+            NavMesh.SamplePosition (randDirection, out navHit, dist, layermask);
+     
+            return navHit.position;
+        }
+    
+        public void Park(Vector3 Hangerpos)
         {
-            light.intensity = 10;
-            lightIsOn = true;
+            isParking = true;
+            agent.SetDestination(Hangerpos);
+        }
+    
+        public void ToggleLights()
+        {
+            if (lightIsOn)
+            {
+                light.intensity = 0;
+                lightIsOn = false;
+            }
+            else
+            {
+                light.intensity = 10;
+                lightIsOn = true;
+            }
         }
     }
 }
+
