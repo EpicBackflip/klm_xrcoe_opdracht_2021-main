@@ -181,6 +181,7 @@ MonoBehaviour:
   airplaneData: {fileID: 0}
   number: 0
   wanderRadius: 10
+  isParking: 0
 --- !u!195 &4785916048107375399
 NavMeshAgent:
   m_ObjectHideFlags: 0

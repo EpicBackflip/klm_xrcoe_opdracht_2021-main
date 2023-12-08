@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 namespace planes
@@ -6,7 +7,9 @@ namespace planes
     [CreateAssetMenu(fileName = "AirplaneScriptableObject", menuName = "Airplane", order = 1)]
     public class AirplaneScriptableObject : ScriptableObject
     {
+        [Tooltip("set the type of the plane here")]
         public string type;
-        public string merk;
+        [Tooltip("set the brand of the plane here")]
+        public string brand;
     }
 }
