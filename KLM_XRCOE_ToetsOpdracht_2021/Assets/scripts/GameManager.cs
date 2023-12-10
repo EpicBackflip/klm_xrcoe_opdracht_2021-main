@@ -28,15 +28,19 @@ namespace planes
         void Start()
         {
             Instance = this;
-            
+            Spawner();
+        }
+
+        public void Spawner()
+        {
             //here i'm instantiated 3 planes and adding them to the list
             //after which i'm looping through them to assign each plane with the airplane data from the scriptable objects and setting their position
             for (int i = 0; i < airplaneData.Count; i++)
             {
-                airplanes.Add(Instantiate(airplanePrefab,transform));
+                airplanes.Add(Instantiate(airplanePrefab, transform));
                 airplanes[i].airplaneData = airplaneData[i];
                 airplanes[i].transform.position = newPosition;
-            //setting the numbers, I made an int i+1 so i can set the text properly as i starts at 0
+                //setting the numbers, I made an int i+1 so i can set the text properly as i starts at 0
                 asignedNumber = i + 1;
                 airplanes[i].number = asignedNumber;
                 hangers[i].GetComponent<Text>().text = asignedNumber.ToString();
