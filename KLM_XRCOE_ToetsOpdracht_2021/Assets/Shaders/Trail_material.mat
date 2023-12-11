@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Trail_material
-  m_Shader: {fileID: -6465566751694194690, guid: 0325b888eb8ba9e41baf9c593fdcd75d, type: 3}
+  m_Name: Trail_Material
+  m_Shader: {fileID: -6465566751694194690, guid: 9a320923d591bf745b225ffc3bd601b4, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,8 +19,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_9cbf19423e2a40ac85a495e61f64052e:
-        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+    - Texture2D_8cb550aca1e44636a2d42a1d83ec8d70:
+        m_Texture: {fileID: 2800000, guid: 0611f7732f01e3144814dded41e1e9dc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -36,10 +36,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_99466043fcc34daebc9e7097ab33fc4c: 35
+    - Vector1_61fe7818f5f64b38be3d0f88517e5a70: 35
     m_Colors:
-    - Color_b238ccecf66c4575b9c01484ebbbb404: {r: 0.07924521, g: 0.151411, b: 1, a: 0}
-    - Color_c8adbb80b3aa4463aaa39d8bbd969ffd: {r: 1, g: 0.138, b: 0.1914755, a: 0}
-    - Vector2_2071495e31ea4a3a93d68f19856a975c: {r: 5, g: 5, b: 5, a: 5}
-    - Vector2_58fa205b07e345f390c249b0d6434c35: {r: -0.5, g: 5, b: 5, a: 5}
+    - Color_6400ef69d8be46bb880139e27f0ef27b: {r: 1, g: 0.3245283, b: 0.4741542, a: 0}
+    - Color_da46e08e51f346a58f84ea676a95ae12: {r: 0.5098038, g: 0.12549019, b: 1, a: 0}
+    - Vector2_7bc0858e4a9a4c4e9e92e80bb48350ed: {r: -0.7, g: 0, b: 0, a: 0}
+    - Vector2_f3a2003e10b54cb8bde81b7923cb95bb: {r: -0.1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
