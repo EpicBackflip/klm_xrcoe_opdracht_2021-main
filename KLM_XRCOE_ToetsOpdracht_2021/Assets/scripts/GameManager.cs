@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 
 namespace planes
 {
@@ -21,6 +22,8 @@ namespace planes
         public Airplaine airplanePrefab;
     
         private Vector3 newPosition = new Vector3(512, 384, 0);
+
+        public GameObject fireWorks;
         
         private int asignedNumber;
         private int amountOfPlanesParked;
@@ -74,6 +77,7 @@ namespace planes
             if (amountOfPlanesParked == airplanes.Count)
             {
                 winText.SetActive(true);
+                fireWorks.SetActive(true);
             }
         }
     } 
