@@ -12,7 +12,9 @@ namespace planes
         private string merk;
         [HideInInspector]
         public int number;
-        
+
+        private Material trailMaterial;
+
         private NavMeshAgent agent;
         [Tooltip("you can set the max wander radius for the planes here meaning they won't move to a point outside of this range")]
         public float wanderRadius;
@@ -22,6 +24,8 @@ namespace planes
         
         private Light light;
         private bool lightIsOn;
+
+        private TrailRenderer trailRenderer;
     
         [HideInInspector]
         public bool isParking;
@@ -33,12 +37,15 @@ namespace planes
             type = airplaneData.type;
             merk = airplaneData.brand;
             name = type;
+            trailMaterial = airplaneData.trailMaterial;
             
             agent = GetComponent<NavMeshAgent>();
     
             //this looks a bit weird but that's because the light is 2 child layers into the plane prefab
             light = transform.GetChild(0).transform.GetChild(3).GetComponent<Light>();
-            
+            //The same counts for the trail renderer
+            trailRenderer = transform.GetChild(0).transform.GetChild(4).GetComponent<TrailRenderer>();
+            trailRenderer.material = trailMaterial;
         }
         void Update()
         {

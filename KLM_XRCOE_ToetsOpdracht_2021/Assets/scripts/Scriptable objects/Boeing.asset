@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Boeing
   m_EditorClassIdentifier: 
   type: Boeing 737-700
-  merk: KLM
+  brand: KLM
+  trailColor: {fileID: 2100000, guid: 03dcaf2981c682648b8d9aa9a3d0e49e, type: 2}

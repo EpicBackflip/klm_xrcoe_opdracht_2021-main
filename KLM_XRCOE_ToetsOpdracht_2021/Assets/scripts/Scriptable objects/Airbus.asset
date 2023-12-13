@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Airbus
   m_EditorClassIdentifier: 
   type: Airbus A330-200
-  merk: KLM
+  brand: KLM
+  trailColor: {fileID: 2100000, guid: c7255f244e3038e448c0e0fbb8c75e45, type: 2}

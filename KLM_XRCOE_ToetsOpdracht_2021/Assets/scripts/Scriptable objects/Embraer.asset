@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Embraer
   m_EditorClassIdentifier: 
   type: Embraer 175
-  merk: KLM
+  brand: KLM
+  trailColor: {fileID: 2100000, guid: cafec865e9aa2624da678ee825dfe88a, type: 2}
