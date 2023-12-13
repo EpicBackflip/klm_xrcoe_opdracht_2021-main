@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 namespace planes
 {
@@ -24,7 +26,7 @@ namespace planes
         
         private Light light;
         private bool lightIsOn;
-
+        
         private TrailRenderer trailRenderer;
     
         [HideInInspector]
@@ -63,7 +65,7 @@ namespace planes
                 isParked = true;
             }
         }
-        
+
         //method to create a new random sphere for the plane to move towards
         public static Vector3 RandomNavSphere(Vector3 origin, float dist, int layermask)
         {

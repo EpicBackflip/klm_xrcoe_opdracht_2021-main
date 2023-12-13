@@ -20,8 +20,8 @@ namespace planes
         public GameObject winText;
         [Tooltip("Drag the airplaneprefab from the assets here")]
         public Airplaine airplanePrefab;
-    
-        private Vector3 newPosition = new Vector3(512, 384, 0);
+
+        private Vector3 newPosition;
 
         public GameObject fireWorks;
         
@@ -40,6 +40,7 @@ namespace planes
             //after which i'm looping through them to assign each plane with the airplane data from the scriptable objects and setting their position
             for (int i = 0; i < airplaneData.Count; i++)
             {
+                newPosition = new Vector3(i * 2, 0, 0);
                 airplanes.Add(Instantiate(airplanePrefab, transform));
                 airplanes[i].airplaneData = airplaneData[i];
                 airplanes[i].transform.position = newPosition;
